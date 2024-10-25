@@ -1,0 +1,30 @@
+name: Rust CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Test and verify MSRV
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Rust - Stable
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
+        components: clippy
+
+    - name: Test
+      run: cargo test --all-features
+
+    - name: Install cargo-msrv
+      run: cargo install cargo-msrv
+
+    - name: MSRV
+      run: cargo msrv verify
