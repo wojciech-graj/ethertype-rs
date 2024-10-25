@@ -1,7 +1,7 @@
 # ethertype-rs
 
 [![crates](https://img.shields.io/crates/v/ethertype.svg)](https://crates.io/crates/ethertype)
-[![tests](https://github.com/wojciech-graj/ethertype/actions/workflows/ci.yml/badge.svg)](https://github.com/wojciech-graj/ethertype/actions/workflows/ci.yml)
+[![tests](https://github.com/wojciech-graj/ethertype-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/wojciech-graj/ethertype-rs/actions/workflows/ci.yml)
 [![docs.rs](https://docs.rs/ethertype/badge.svg)](https://docs.rs/ethertype)
 ![msrv](https://img.shields.io/crates/msrv/ethertype)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
