@@ -20,11 +20,17 @@ jobs:
         profile: minimal
         components: clippy
 
-    - name: Test
+    - name: Install cargo-binstall
+      uses: cargo-bins/cargo-binstall@main
+
+    - name: Test with all features
       run: cargo test --all-features
 
+    - name: Test with no default features
+      run: cargo test --no-default-features
+
     - name: Install cargo-msrv
-      run: cargo install cargo-msrv
+      run: cargo binstall --no-confirm cargo-msrv
 
     - name: MSRV
       run: cargo msrv verify

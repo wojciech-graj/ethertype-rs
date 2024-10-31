@@ -1,6 +1,6 @@
 //! Common EtherTypes
 //!
-//! The ether types are taken from the following sources:
+//! The EtherTypes are taken from the following sources:
 //! - [rfc7042 B.1](https://datatracker.ietf.org/doc/html/rfc7042#autoid-40)
 //! - [rfc7042 B.2](https://datatracker.ietf.org/doc/html/rfc7042#autoid-41)
 //! - [rfc1701 Current List of Protocol Types](https://www.rfc-editor.org/rfc/rfc1701)

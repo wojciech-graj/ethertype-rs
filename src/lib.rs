@@ -10,10 +10,15 @@
 //! [IEEE Registration Authority](http://standards.ieee.org/develop/regauth) can be obtained with
 //! [`EtherType::ieee_description`] and [`EtherType::ieee_organization`] respectively.
 
-#![no_std]
+#![cfg_attr(not(feature = "std"), no_std)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+use core::{fmt, str::FromStr};
+
+use error::ParseEtherTypeError;
+
 pub mod consts;
+pub mod error;
 
 #[cfg_attr(docsrs, doc(cfg(feature = "ieee")))]
 #[cfg(feature = "ieee")]
@@ -26,6 +31,10 @@ mod iana;
 #[cfg_attr(docsrs, doc(cfg(feature = "desc")))]
 #[cfg(feature = "desc")]
 mod desc;
+
+#[cfg_attr(docsrs, doc(cfg(feature = "serde")))]
+#[cfg(feature = "serde")]
+mod serde;
 
 /// The EtherType field in an Ethernet header, as specified in IEEE 802.
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
@@ -40,5 +49,50 @@ impl From<u16> for EtherType {
 impl From<EtherType> for u16 {
     fn from(value: EtherType) -> Self {
         value.0
+    }
+}
+
+impl fmt::Display for EtherType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "{:04x}", self.0)
+    }
+}
+
+impl FromStr for EtherType {
+    type Err = ParseEtherTypeError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        if s.len() != 4 {
+            return Err(ParseEtherTypeError::InvalidLength);
+        }
+
+        u16::from_str_radix(s, 16)
+            .map(EtherType)
+            .map_err(ParseEtherTypeError::ParseInt)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    #[cfg(feature = "std")]
+    fn display() {
+        let ether_type = EtherType(0x0123);
+        assert_eq!("0123", ether_type.to_string())
+    }
+
+    #[test]
+    fn from_str() {
+        assert_eq!(EtherType(0x0123), "0123".parse::<EtherType>().unwrap());
+    }
+
+    #[test]
+    fn from_str_length_error() {
+        assert_eq!(
+            Err(ParseEtherTypeError::InvalidLength),
+            "123".parse::<EtherType>()
+        );
     }
 }
