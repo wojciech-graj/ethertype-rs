@@ -20,6 +20,12 @@ jobs:
         profile: minimal
         components: clippy
 
+    - name: Set up Rust - Nightly
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        profile: minimal
+
     - name: Install cargo-binstall
       uses: cargo-bins/cargo-binstall@main
 
@@ -33,4 +39,6 @@ jobs:
       run: cargo binstall --no-confirm cargo-msrv
 
     - name: MSRV
-      run: cargo msrv verify
+      run: |
+        cargo +nightly generate-lockfile -Z minimal-versions
+        cargo msrv verify

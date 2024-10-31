@@ -22,11 +22,11 @@ default = ["desc", "std"]
 desc = []
 iana = []
 ieee = []
-serde = ["dep:serde"]
+serde = ["serde_cr"]
 std = []
 
 [dependencies]
-serde = { version = "1.0.214", default-features = false, optional = true }
+serde_cr = { package = "serde", version = "1.0.210", default-features = false, optional = true }
 
 [dev-dependencies]
 serde_test = { version = "1.0.177" }

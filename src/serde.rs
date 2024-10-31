@@ -1,3 +1,5 @@
+extern crate serde_cr as serde;
+
 use serde::{de::Error, Deserialize, Serialize};
 
 use crate::EtherType;
