@@ -10,6 +10,8 @@
 //! [IEEE Registration Authority](http://standards.ieee.org/develop/regauth) can be obtained with
 //! [`EtherType::ieee_description`] and [`EtherType::ieee_organization`] respectively.
 
+#![deny(clippy::pedantic)]
+#![allow(clippy::doc_markdown, clippy::must_use_candidate)]
 #![cfg_attr(not(feature = "std"), no_std)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 

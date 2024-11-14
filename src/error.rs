@@ -1,6 +1,7 @@
 use core::{fmt, num::ParseIntError};
 
 /// An error which can be returned when parsing an [`EtherType`](`crate::EtherType`)
+#[allow(clippy::module_name_repetitions)]
 #[derive(Clone, Eq, PartialEq, Debug)]
 #[non_exhaustive]
 pub enum ParseEtherTypeError {
@@ -24,7 +25,7 @@ impl fmt::Display for ParseEtherTypeError {
 mod std {
     use ::std::error::Error;
 
-    use super::*;
+    use super::ParseEtherTypeError;
 
     impl Error for ParseEtherTypeError {}
 }
