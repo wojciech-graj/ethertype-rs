@@ -1,6 +1,7 @@
 import csv
 import io
 import re
+import subprocess
 
 import requests
 
@@ -83,8 +84,10 @@ def main():
 
     for fmt in formats:
         r = requests.get(fmt["url"])
-        with open(f"src/{fmt['out']}", "w") as out:
+        path = f"src/{fmt['out']}"
+        with open(path, "w") as out:
             fmt["func"](io.StringIO(r.text, newline=''), out)
+        subprocess.run(["rustfmt", "--edition", "2021", path])
 
 
 if __name__ == "__main__":
