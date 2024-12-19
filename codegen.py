@@ -1,6 +1,7 @@
 import csv
 import io
 import re
+import subprocess
 
 import requests
 
@@ -45,7 +46,7 @@ def ieee(inp, out):
         "use crate::EtherType;\n"
         "\n"
         "impl EtherType {\n"
-        "    /// A brief textual description of the [`EtherType`] sourced from the [IEEE Registration Authority](http://standards.ieee.org/develop/regauth).\n"
+        "    /// A brief textual description of the [`EtherType`] sourced from the [IEEE Registration Authority](https://standards.ieee.org/develop/regauth).\n"
         "    pub const fn ieee_description(self) -> Option<&'static str> {\n"
         "        Some(match self.0 {\n" + ''.join([
             f'            0x{ethertype} => r#"{description}"#,\n'
@@ -54,7 +55,7 @@ def ieee(inp, out):
         "        })\n"
         "    }\n"
         "\n"
-        "    /// The organization that registered the [`EtherType`] sourced from the [IEEE Registration Authority](http://standards.ieee.org/develop/regauth).\n"
+        "    /// The organization that registered the [`EtherType`] sourced from the [IEEE Registration Authority](https://standards.ieee.org/develop/regauth).\n"
         "    pub const fn ieee_organization(self) -> Option<&'static str> {\n"
         "        Some(match self.0 {\n" + ''.join([
             f'            0x{ethertype} => r#"{organization}"#,\n'
@@ -81,10 +82,19 @@ def main():
         },
     )
 
+    # The IEEE website is picky about which requests it lets through
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    }
+
     for fmt in formats:
-        r = requests.get(fmt["url"])
-        with open(f"src/{fmt['out']}", "w") as out:
+        r = requests.get(fmt["url"], headers=headers)
+        r.raise_for_status()
+        path = f"src/{fmt['out']}"
+        with open(path, "w") as out:
             fmt["func"](io.StringIO(r.text, newline=''), out)
+        subprocess.run(["rustfmt", "--edition", "2021", path])
 
 
 if __name__ == "__main__":
