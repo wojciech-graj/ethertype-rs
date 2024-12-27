@@ -2,6 +2,8 @@ import csv
 import io
 import re
 import subprocess
+from collections import defaultdict
+from itertools import groupby
 
 import requests
 
@@ -29,16 +31,36 @@ def iana(inp, out):
               "}\n")
 
 
+def format_patterns(assignments):
+    lines = []
+    for value, ethertypes in assignments.items():
+        ethertypes = list(set(ethertypes))
+        ethertypes.sort()
+        ethertype_pats = []
+
+        for _, g in groupby(enumerate(ethertypes), lambda ix: ix[0] - ix[1]):
+            g = list(g)
+            ethertype_pats.append(f"0x{g[0][1]:04X}" if len(g) ==
+                                  1 else f"0x{g[0][1]:04X}..=0x{g[-1][1]:04X}")
+
+        ethertype_pat = " | ".join(ethertype_pats)
+        lines.append(f'            {ethertype_pat} => r#"{value}"#,\n')
+    lines.sort()
+    return "".join(lines)
+
+
 def ieee(inp, out):
     reader = csv.DictReader(inp, quotechar='"', doublequote=True)
-    assignments = []
-    organization_names = []
-    protocols = []
+    organizations = defaultdict(list)
+    organization_addresses = defaultdict(list)
+    protocols = defaultdict(list)
+
     for row in reader:
-        assignments.append(
-            re.search(r"\b[0-9A-Fa-f]{4}\b", row["Assignment"]).group(0))
-        organization_names.append(row["Organization Name"])
-        protocols.append(row["Protocol"])
+        ethertype = int(
+            re.search(r"\b[0-9A-Fa-f]{4}\b", row["Assignment"]).group(0), 16)
+        organizations[row["Organization Name"]].append(ethertype)
+        protocols[row["Protocol"]].append(ethertype)
+        organization_addresses[row["Organization Address"]].append(ethertype)
 
     out.write(
         "#![allow(unreachable_patterns)]\n"
@@ -48,20 +70,23 @@ def ieee(inp, out):
         "impl EtherType {\n"
         "    /// A brief textual description of the [`EtherType`] sourced from the [IEEE Registration Authority](https://standards.ieee.org/develop/regauth).\n"
         "    pub const fn ieee_description(self) -> Option<&'static str> {\n"
-        "        Some(match self.0 {\n" + ''.join([
-            f'            0x{ethertype} => r#"{description}"#,\n'
-            for (ethertype, description) in zip(assignments, protocols)
-        ]) + "            _ => return None,\n"
+        "        Some(match self.0 {\n" + format_patterns(protocols) +
+        "            _ => return None,\n"
         "        })\n"
         "    }\n"
         "\n"
         "    /// The organization that registered the [`EtherType`] sourced from the [IEEE Registration Authority](https://standards.ieee.org/develop/regauth).\n"
         "    pub const fn ieee_organization(self) -> Option<&'static str> {\n"
-        "        Some(match self.0 {\n" + ''.join([
-            f'            0x{ethertype} => r#"{organization}"#,\n'
-            for (ethertype,
-                 organization) in zip(assignments, organization_names)
-        ]) + "            _ => return None,\n"
+        "        Some(match self.0 {\n" + format_patterns(organizations) +
+        "            _ => return None,\n"
+        "        })\n"
+        "    }\n"
+        "\n"
+        "    /// The address of the organization that registered the [`EtherType`] sourced from the [IEEE Registration Authority](https://standards.ieee.org/develop/regauth).\n"
+        "    pub const fn ieee_organization_address(self) -> Option<&'static str> {\n"
+        "        Some(match self.0 {\n" +
+        format_patterns(organization_addresses) +
+        "            _ => return None,\n"
         "        })\n"
         "    }\n"
         "}\n")
