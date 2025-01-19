@@ -855,6 +855,9 @@ in IETF RFC 4944 "Transmission of IPv6 Packets over IEEE 802.15.4 Networks""#
             0xC9D1 => {
                 r#"Legacy assignment (use 8870 instead) - LLC encapsulation as defined by IEEE Std 802.1AC-2016."#
             }
+            0xCCB1 => {
+                r#"A customer Tag. This tag carries information indicating the enabling and related operations for congestion control schemes."#
+            }
             0xCCE0 => {
                 r#"Reliable Internet Stream Transport is an open source, open specification transport protocol designed for reliable transmission of video over lossy networks (including the internet) with low latency and high quality."#
             }
@@ -1401,7 +1404,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x9040..=0x905F => r#"TopWare/Grand Computer Corp."#,
             0x909B => r#"VisionVera Information Technology Company, Ltd"#,
             0x9433 => r#"O-RAN Alliance e.V."#,
-            0x96B6 | 0xA85A => r#"Huawei Technologies Co., Ltd."#,
+            0x96B6 | 0xA85A | 0xCCB1 => r#"Huawei Technologies Co., Ltd."#,
             0x99FE => r#"ASAM e.V."#,
             0x9A22 => r#"IETF"#,
             0x9AC6 => r#"Tesla,Inc."#,
@@ -1991,7 +1994,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
                 r#"Gehua Building A1105, Dong Cheng District, Beijing Beijing Beijing CN 100007 "#
             }
             0x9433 => r#"Buschkauler Weg 27 Alfter  DE 53347 "#,
-            0x96B6 | 0xA85A => {
+            0x96B6 | 0xA85A | 0xCCB1 => {
                 r#" Bantian, Longgang District, Shenzhen, 518129, P.R.C Shenzhen GUANGDONG Province CN 518000 "#
             }
             0x99FE => r#"Leopoldstraße 236 Munich  DE 80807 "#,
