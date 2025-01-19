@@ -39,6 +39,8 @@ jobs:
         new_version="$major.$minor.$((patch + 1))"
         sed -i "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
 
+        cargo check
+
         branch=autoupdate/$(date +%F)
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
