@@ -1929,8 +1929,8 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8912 => r#"Barcelona Activa- Vivero Glorias Barcelona  ES 08018 "#,
             0x8913 => r#"Am Studio 3 Berlin  DE 12489 "#,
             0x8914 | 0x8928 => r#"1320 Ridder Park Dr San Jose CA US 95131 "#,
-            0x8915 | 0x8932 | 0x8948..=0x8949 | 0x8CE4 => {
-                r#"350 Oakmead Parkway, Suite 100  Sunnyvale CA US 94085 "#
+            0x8915 | 0x8932 | 0x8949 => {
+                r#"350 Oakmead Parkway, Suite 100   Sunnyvale CA US 94085 "#
             }
             0x8916 => r#"3350 Scott Blvd Santa Clara CA US 95054 "#,
             0x8917 => r#"IEEE 802.21 Chair, c/o RAC Administrator IEEE Piscataway NJ US 08854 "#,
@@ -1977,6 +1977,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8944 => r#"Studio G20, Shepherds Building  London GB W140DA "#,
             0x8945 => r#"Zugerstrasse 24 Steinhausen Zug CH 6312 "#,
             0x8947 | 0x9E65 => r#"650 Route des lucioles Sophia antipolis  FR 06921 "#,
+            0x8948 | 0x8CE4 => r#"350 Oakmead Parkway, Suite 100  Sunnyvale CA US 94085 "#,
             0x894A => r#"85 Alexandra Street Hamilton  NZ 3204 "#,
             0x894C => r#"3, rue de Varembé Geneva GE CH 1211 "#,
             0x894D => r#"Richard Reitzner Allee 6 Haar Bavaria DE 85540 "#,
