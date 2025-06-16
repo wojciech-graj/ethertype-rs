@@ -861,6 +861,9 @@ in IETF RFC 4944 "Transmission of IPv6 Packets over IEEE 802.15.4 Networks""#
             0xCCE0 => {
                 r#"Reliable Internet Stream Transport is an open source, open specification transport protocol designed for reliable transmission of video over lossy networks (including the internet) with low latency and high quality."#
             }
+            0xCEB4 => {
+                r#"Various control, management, and transport protocols delineated by sub-types that are administered and managed by General Motors."#
+            }
             0xD28B => {
                 r#"We plan to use this Ethertype for multiple proprietary protocols.  They are still under development. We will disclose the protocols publicly once they are generally available."#
             }
@@ -1427,6 +1430,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xBC19 => r#"DarkMatter L.L.C"#,
             0xC111 => r#"Soraa, Inc."#,
             0xCCE0 => r#"Video Services Forum, Inc."#,
+            0xCEB4 => r#"General Motors"#,
             0xD28B => r#"Arista Networks"#,
             0xD672 => r#"InMon Corp."#,
             0xDC94 => r#"Kone Corporation"#,
@@ -2019,6 +2023,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xBC19 => r#"Level 15, Aldar HQ Abu Dhabi  AE 27655 "#,
             0xC111 => r#"6500 Kaiser Dr Suite 110 Fremont CA US 94555 "#,
             0xCCE0 => r#"208 84th Street 08242 Sea Isle City NJ US 08243 "#,
+            0xCEB4 => r#"3300 General Motors Rd Milford MI US 48380 "#,
             0xD28B => r#"5453 Great America Parkway Santa Clara CA US 95054 "#,
             0xD672 => r#"1 Sansome Street, FL35 San Francisco CA US 94104 "#,
             0xDC94 => r#"Kartanontie 1 Helsinki  FI 00330 "#,
