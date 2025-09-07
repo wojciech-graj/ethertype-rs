@@ -1403,7 +1403,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8954 => r#"Datasat Technologies"#,
             0x8955 => r#"Megapixel VR"#,
             0x8956 => r#"Japan Cable Television Engineering Association"#,
-            0x8BC2 => r#"Digital 14"#,
+            0x8BC2 => r#"KATIM L.L.C"#,
             0x9040..=0x905F => r#"TopWare/Grand Computer Corp."#,
             0x909B => r#"VisionVera Information Technology Company, Ltd"#,
             0x9433 => r#"O-RAN Alliance e.V."#,
