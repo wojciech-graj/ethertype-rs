@@ -1,7 +1,7 @@
 //! A crate providing the [`EtherType`] type for representing IEEE 802 EtherType values.
 //!
-//! The [`consts`] module contains the most common EtherTypes, the descriptions of which can be
-//! obtained using [`EtherType::description`].
+//! [`EtherType`] has associated constants for the most common EtherType values, the descriptions of
+//! which can be obtained using [`EtherType::description`].
 //!
 //! Additionally, descriptions from
 //! [IANA](https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml) can be obtained
@@ -19,7 +19,7 @@ use core::{fmt, str::FromStr};
 
 use error::ParseEtherTypeError;
 
-pub mod consts;
+mod consts;
 pub mod error;
 
 #[cfg_attr(docsrs, doc(cfg(feature = "ieee")))]
