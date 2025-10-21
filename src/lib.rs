@@ -22,19 +22,15 @@ use error::ParseEtherTypeError;
 mod consts;
 pub mod error;
 
-#[cfg_attr(docsrs, doc(cfg(feature = "ieee")))]
 #[cfg(feature = "ieee")]
 mod ieee;
 
-#[cfg_attr(docsrs, doc(cfg(feature = "iana")))]
 #[cfg(feature = "iana")]
 mod iana;
 
-#[cfg_attr(docsrs, doc(cfg(feature = "desc")))]
 #[cfg(feature = "desc")]
 mod desc;
 
-#[cfg_attr(docsrs, doc(cfg(feature = "serde")))]
 #[cfg(feature = "serde")]
 mod serde;
 

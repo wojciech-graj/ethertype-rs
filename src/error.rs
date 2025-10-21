@@ -20,10 +20,9 @@ impl fmt::Display for ParseEtherTypeError {
     }
 }
 
-#[cfg_attr(docsrs, doc(cfg(feature = "std")))]
 #[cfg(feature = "std")]
 mod std {
-    use ::std::error::Error;
+    use std::error::Error;
 
     use super::ParseEtherTypeError;
 
