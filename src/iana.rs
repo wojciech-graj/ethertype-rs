@@ -50,7 +50,7 @@ impl EtherType {
             0x6007 => r#"DEC LAVC, SCA"#,
             0x6008..=0x6009 => r#"DEC Unassigned"#,
             0x6010..=0x6014 => r#"3Com Corporation"#,
-            0x6558 => r#"Trans Ether Bridging"#,
+            0x6558 => r#"Transparent Ethernet Bridging"#,
             0x6559 => r#"Raw Frame Relay"#,
             0x7000 => r#"Ungermann-Bass download"#,
             0x7002 => r#"Ungermann-Bass dia/loop"#,
