@@ -1280,7 +1280,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x88A7 => r#"HUAWEI TECHNOLOGIES CO.,LTD"#,
             0x88A9 => r#"Meshnetworks, Inc."#,
             0x88AA | 0x8901 => r#"Nokia Networks/IP Mobility Networks"#,
-            0x88AB => r#"ETHERNET Powerlink Standarization Group (EPSG)"#,
+            0x88AB => r#"B&R Industrial Automation GmbH "#,
             0x88AC => r#"Tenor Networks, Inc."#,
             0x88AD => r#"XiMeta Technology Americas Inc."#,
             0x88AE => r#"Andiamo Systems, Inc."#,
