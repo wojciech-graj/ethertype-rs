@@ -1844,7 +1844,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x88A7 => r#"8F, Huadian R&D Building Shenzhen Guangdong CN 518129 "#,
             0x88A9 => r#"485 Keller Road Maitland FL US 32751 "#,
             0x88AA => r#"P.O. Box 301   FI 00045 "#,
-            0x88AB => r#"Gebaude E301 Winterthur  US CH-8401 "#,
+            0x88AB => r#" B&R Strasse 1  Eggelsberg        AT 5142 "#,
             0x88AC => r#"100 Nagog Park Acton MA US 01720-3409 "#,
             0x88AD => r#"54 Ray Street New Brunswick NJ US 08901 "#,
             0x88AE => r#"375 E. Tasman Dr. San Jose CA US 95134 "#,
