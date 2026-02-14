@@ -791,6 +791,9 @@ Protocol Version                     8 bits
             0x96B6 => {
                 r#"The industrial optical fieldbus is derived from ITU-T GPON standard and reformed for industrial control application to ensure low latency, deterministic and high reliability connection between the control device and field devices."#
             }
+            0x9913 => {
+                r#"This EtherType enables hardware control of SEL hardware devices over an Ethernet connection where resources are too constrained to support a full network stack implementation, or where reduced network burden is desired."#
+            }
             0x9999 => {
                 r#"ADTRAN does not currently wish to disclose it's protocols, but may desire to do so in the future."#
             }
@@ -1373,7 +1376,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8924 => r#"iris-GmbH infrared & intelligent sensors"#,
             0x8927 => r#"Klavis Technologies"#,
             0x892A => r#"Roland SG Corporation"#,
-            0x892B | 0xDDB3 | 0xF5D2 => r#"Schweitzer Engineering Laboratories, Inc."#,
+            0x892B | 0x9913 | 0xDDB3 | 0xF5D2 => r#"Schweitzer Engineering Laboratories, Inc."#,
             0x892C => r#"China Broadband Wireless IP Standard group(ChinaBWIPS)"#,
             0x892D => r#"Bachmann electronic GmbH"#,
             0x892E => r#"Ozmo Devices"#,
@@ -1957,7 +1960,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8924 => r#"Ostendstraße 1-14 Berlin  DE 12459 "#,
             0x8927 => r#"9A Bld de France Braine-L'Alleud Brabant BE 1420 "#,
             0x892A => r#"4010-5 Wada Matsumoto-shi Nagano JP 390-1242 "#,
-            0x892B | 0xDDB3 | 0xF5D2 => r#"2350 NE Hopkins Court Pullman WA US 99163 "#,
+            0x892B | 0x9913 | 0xDDB3 | 0xF5D2 => r#"2350 NE Hopkins Court Pullman WA US 99163 "#,
             0x892C => r#"100191-006#  Beijing  CN 100191 "#,
             0x892D => r#"Kreuzackerweg 33 Feldkirch  AT 6800 "#,
             0x892E => r#"2595 E. Bayshore Rd. Suite 100 Palo Alto CA US 94303 "#,
