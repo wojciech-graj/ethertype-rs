@@ -11,7 +11,14 @@ import requests
 def iana(inp, out):
     reader = csv.DictReader(inp)
     out.write(
-        "#![allow(unreachable_patterns)]\n"
+        "#![allow(\n"
+        "    clippy::match_overlapping_arm,\n"
+        "    clippy::match_same_arms,\n"
+        "    clippy::needless_raw_string_hashes,\n"
+        "    clippy::too_many_lines,\n"
+        "    clippy::unicode_not_nfc,\n"
+        "    unreachable_patterns\n"
+        ")]\n"
         "\n"
         "use crate::EtherType;\n"
         "\n"
@@ -63,7 +70,14 @@ def ieee(inp, out):
         organization_addresses[row["Organization Address"]].append(ethertype)
 
     out.write(
-        "#![allow(unreachable_patterns)]\n"
+        "#![allow(\n"
+        "    clippy::match_overlapping_arm,\n"
+        "    clippy::match_same_arms,\n"
+        "    clippy::needless_raw_string_hashes,\n"
+        "    clippy::too_many_lines,\n"
+        "    clippy::unicode_not_nfc,\n"
+        "    unreachable_patterns\n"
+        ")]\n"
         "\n"
         "use crate::EtherType;\n"
         "\n"

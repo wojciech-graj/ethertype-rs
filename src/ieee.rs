@@ -1,4 +1,11 @@
-#![allow(unreachable_patterns)]
+#![allow(
+    clippy::match_overlapping_arm,
+    clippy::match_same_arms,
+    clippy::needless_raw_string_hashes,
+    clippy::too_many_lines,
+    clippy::unicode_not_nfc,
+    unreachable_patterns
+)]
 
 use crate::EtherType;
 
