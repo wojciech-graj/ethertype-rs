@@ -865,6 +865,12 @@ in IETF RFC 4944 "Transmission of IPv6 Packets over IEEE 802.15.4 Networks""#
             0xC9D1 => {
                 r#"Legacy assignment (use 8870 instead) - LLC encapsulation as defined by IEEE Std 802.1AC-2016."#
             }
+            0xCB4B => {
+                r#"Sends raw audio stream data without using IP protocols
+Used for low-latency high-resolution audio
+
+https://www.diretta.link/DDS.txt"#
+            }
             0xCCB1 => {
                 r#"A customer Tag. This tag carries information indicating the enabling and related operations for congestion control schemes."#
             }
@@ -1439,6 +1445,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xBC17 => r#"Dish Technologies Corp"#,
             0xBC19 => r#"DarkMatter L.L.C"#,
             0xC111 => r#"Soraa, Inc."#,
+            0xCB4B => r#"Diretta"#,
             0xCCE0 => r#"Video Services Forum, Inc."#,
             0xCEB4 => r#"General Motors"#,
             0xD28B => r#"Arista Networks"#,
@@ -2032,6 +2039,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xBC17 => r#"94 Inverness Terrace E Englewood CO US 80111 "#,
             0xBC19 => r#"Level 15, Aldar HQ Abu Dhabi  AE 27655 "#,
             0xC111 => r#"6500 Kaiser Dr Suite 110 Fremont CA US 94555 "#,
+            0xCB4B => r#"4-29-8 Honjyo SumidaKu Tokyo  JP 1300004 "#,
             0xCCE0 => r#"208 84th Street 08242 Sea Isle City NJ US 08243 "#,
             0xCEB4 => r#"3300 General Motors Rd Milford MI US 48380 "#,
             0xD28B => r#"5453 Great America Parkway Santa Clara CA US 95054 "#,
