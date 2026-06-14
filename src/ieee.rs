@@ -901,6 +901,10 @@ https://www.diretta.link/DDS.txt"#
             0xE23B => {
                 r#"Media Access Control (MAC) Privacy protection protocol as specified in IEEE Std 802.1AE."#
             }
+            0xE790 => {
+                r#"Ultra Ethernet Transport Protocol (UET)
+"#
+            }
             0xE890 => r#"Telecor Inc. eSeries Communication Protocol"#,
             0xEADD => {
                 r#"This Ethertype will be used to identify a new type of network protocol supporting the multi-labels communication pattern and its comprehensive interoperation."#
@@ -1451,6 +1455,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xD28B => r#"Arista Networks"#,
             0xD672 => r#"InMon Corp."#,
             0xDC94 => r#"Kone Corporation"#,
+            0xE790 => r#"Ultra Ethernet Consortium"#,
             0xE890 => r#"Telecor Inc."#,
             0xEC19 => r#"AirTies Wireless Networks"#,
             0xF45F => r#"Beijing Haiwang Network Technologies Co., Ltd"#,
@@ -2045,6 +2050,9 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xD28B => r#"5453 Great America Parkway Santa Clara CA US 95054 "#,
             0xD672 => r#"1 Sansome Street, FL35 San Francisco CA US 94104 "#,
             0xDC94 => r#"Kartanontie 1 Helsinki  FI 00330 "#,
+            0xE790 => {
+                r#"The Linux Foundation Joint Development Foundation Attn: Ultra Ethernet Consortium Project 548 Market St, PMB 57274 San Francisco CA US 94104-5401 "#
+            }
             0xE890 => r#"6205 Kestrel Road Mississauga Ontario CA L5T 2A1 "#,
             0xEC19 => {
                 r#"Mithat Ulu Ünlü Sokak No. 23  Esentepe, Şişli  ISTANBUL ISTANBUL TR 34394 "#
