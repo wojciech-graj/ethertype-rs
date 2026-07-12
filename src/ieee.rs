@@ -862,6 +862,11 @@ in IETF RFC 4944 "Transmission of IPv6 Packets over IEEE 802.15.4 Networks""#
             0xC111 => {
                 r#"A simple protocol will be used to manage and monitor a device or group of devices."#
             }
+            0xC35A => {
+                r#"The protocol subtype field set to one identifies the performance measurement function protocol specified in 3GPP TS 24.193.
+3GPP TS 24.193 enables assignment of further protocols to values of the protocol subtype field.
+"#
+            }
             0xC9D1 => {
                 r#"Legacy assignment (use 8870 instead) - LLC encapsulation as defined by IEEE Std 802.1AC-2016."#
             }
@@ -1412,7 +1417,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x8943 => r#"Tektronix  Communications"#,
             0x8944 => r#"Carallon Ltd"#,
             0x8945 => r#"Crypto AG"#,
-            0x8947 | 0x9E65 => r#"ETSI"#,
+            0x8947 | 0x9E65 | 0xC35A => r#"ETSI"#,
             0x894A => r#"Endace Technologies Ltd."#,
             0x894C => r#"IEC – International Electrotechnical Commission"#,
             0x894D => r#"Softing Industrial Automation GmbH"#,
@@ -2044,6 +2049,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0xBC17 => r#"94 Inverness Terrace E Englewood CO US 80111 "#,
             0xBC19 => r#"Level 15, Aldar HQ Abu Dhabi  AE 27655 "#,
             0xC111 => r#"6500 Kaiser Dr Suite 110 Fremont CA US 94555 "#,
+            0xC35A => r#"650 Route des Lucioles Valbonne Alpes-Maritimes FR 06560 "#,
             0xCB4B => r#"4-29-8 Honjyo SumidaKu Tokyo  JP 1300004 "#,
             0xCCE0 => r#"208 84th Street 08242 Sea Isle City NJ US 08243 "#,
             0xCEB4 => r#"3300 General Motors Rd Milford MI US 48380 "#,
