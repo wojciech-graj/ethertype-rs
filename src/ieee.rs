@@ -54,7 +54,7 @@ impl EtherType {
             | 0x8148..=0x818D
             | 0x8191..=0x821B
             | 0x8221..=0x86DC
-            | 0x86DE..=0x880A
+            | 0x86DE..=0x8807
             | 0x880C..=0x880E
             | 0x8817..=0x881F
             | 0x8821..=0x8831
@@ -189,6 +189,10 @@ The final document can be found here: http://www.ietf.org/rfc/rfc6325.txt"#
                 r#"EtherType used by the Amoeba Distributed Operating System protocols"#
             }
             0x86DD => r#"Internet Protocol Version 6 (IPV6)"#,
+            0x8808..=0x880A => {
+                r#"8808 MAC Control as defined in IEEE Std 802.3
+8809 Slow Protocols as defined in IEEE Std 802.3"#
+            }
             0x880B => r#"PPP - IETF RFC 2637"#,
             0x880F..=0x8812 => {
                 r#"Hypercom Corporation uses the EtherType fields for their proprietary Integrated Enterprise Network(IEN) LAN-to-LAN protocols."#
@@ -300,7 +304,7 @@ devices to carry device specific information"#
                 r#"This Ethertype is used to identify a protocol used for automatic configuration of Wireless LANs.  For further information, please visit www.AutoCell.com."#
             }
             0x88C6 => r#"This product is intended for 802.11 product to product communications."#,
-            0x88C7 => r#"RSNA Preauthentication as defined in IEEE Std 802.11"#,
+            0x88C7 => r#"Preauthentication as defined in IEEE Std 802.11"#,
             0x88C8 => {
                 r#"In our protocol, only one field must be required. It is two byte "sub-type" field. We manage this sub-type and assign it to each application.  Acutual protocol in each application may be vary. If sub-type is allocated, its protocol and data format can be freely designed."#
             }
@@ -313,7 +317,7 @@ devices to carry device specific information"#
 a URL for the protocol: http://www.epa.net.cn  notes:This is a chinese website,we are translating it to English.
 "#
             }
-            0x88CC => r#"Link Layer Discovery Protocol (LLDP) defined in IEEE Std 802.1AB"#,
+            0x88CC => r#"Link Layer Discovery Protocol (LLDP) defined in IEEE Std 802.1AB "#,
             0x88CD => r#"SERCOS interface "#,
             0x88CE => {
                 r#"Type Protocol:
@@ -546,7 +550,7 @@ This is the SourceForge web site. Look under Project/Web to direct you to the LI
 Valid first two octets of frame payload are: (00-01 thru 00-6F), (00-EE thru 00-FE),
 (80-10 thru 80-6F), (80-EE thru 80-FE)."#
             }
-            0x8917 => r#"Media Independent Service (MIS) protocol as defined in IEEE Std 802.21"#,
+            0x8917 => r#"Media Independent Handover Protocol as defined in IEEE Std 802.21"#,
             0x8919 => {
                 r#"Two protocols will be using this EtherType:
 
@@ -1017,13 +1021,16 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             | 0x22E7
             | 0x22E9..=0x22EA
             | 0x8100
+            | 0x8870
             | 0x888E
             | 0x88A8
             | 0x88B5..=0x88B7
             | 0x88CC
+            | 0x88E5
             | 0x88E7
             | 0x88F5..=0x88F6
             | 0x8902
+            | 0x8910
             | 0x8929
             | 0x893F..=0x8940
             | 0x894B
@@ -1031,7 +1038,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             | 0x89A2
             | 0xC9D1
             | 0xE23B
-            | 0xF1C1 => r#"IEEE 802.1 Chair"#,
+            | 0xF1C1 => r#"IEEE 802.1 Working Group"#,
             0x0884 => r#"AES DAta"#,
             0x0885 => r#"Hastech"#,
             0x0886..=0x0887 => r#"Tolerant Systems"#,
@@ -1253,7 +1260,6 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x886B => r#"Bay Networks"#,
             0x886C => r#"Epigram, Inc."#,
             0x886F | 0x88C0 => r#"Microsoft Corporation"#,
-            0x8870 | 0x88E5 | 0x8910 => r#"IEEE 802.1 Working Group"#,
             0x8871 => r#"Nippon Telegraph and Telephone Corporation"#,
             0x8872 => r#"UUNET Technologies"#,
             0x8873 => r#"Crescent Networks Inc."#,
@@ -1580,11 +1586,11 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             | 0x22E7
             | 0x22E9..=0x22EA
             | 0x8100
-            | 0x8870
             | 0x888E
             | 0x88A8
             | 0x88B5..=0x88B7
             | 0x88CC
+            | 0x88E7
             | 0x88F5..=0x88F6
             | 0x8902
             | 0x8929
@@ -1594,7 +1600,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             | 0x89A2
             | 0xC9D1
             | 0xE23B
-            | 0xF1C1 => r#" c/o RAC Administrator , IEEE Piscataway NJ US 08554 "#,
+            | 0xF1C1 => r#" IEEE 802.1 Chair, c/o RAC Administrator, IEEE Piscataway NJ US 08554 "#,
             0x0884 => r#"1900 Minnesota Court Mississauga Ontario CA L5N 3C9 "#,
             0x0885 => r#"Hastech, Inc. Manchester NH US 03101 "#,
             0x0886..=0x0887 => r#"81 East Daggett Drive San Jose CA US 95134 "#,
@@ -1816,6 +1822,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x886C => r#"870 West Maude Ave. Sunnyvale CA US 94086 "#,
             0x886D..=0x886E => r#"JF3-410 Hillsboro OR US 97124 "#,
             0x886F | 0x88C0 => r#"One Microsoft Way Redmond WA US 98052 "#,
+            0x8870 => r#" c/o RAC Administrator , IEEE Piscataway NJ US 08554 "#,
             0x8871 => r#"Software Laboratory Tokyo  JP 180-8585 "#,
             0x8872 => r#"100 Manhattanville Rd. Purchase NY US 10577 "#,
             0x8873 => r#"201 Riverneck Road Chelmsford MA US 01842 "#,
@@ -1891,7 +1898,9 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x88C4 => r#"125 Nagog Park Dr. Acton MA US 01720 "#,
             0x88C5 => r#"11134 Stephalee Lane North Bethesda MD US 20852 "#,
             0x88C6 => r#"700 Kings Farm Blvd Rockville MD US 20850 "#,
-            0x88C7 | 0x890D => r#"c/o RAC Administrator Piscataway  NJ US 08854 "#,
+            0x88C7 | 0x890D => {
+                r#"IEEE 802.11 Chair, c/o RAC Administrator, IEEE Piscataway  NJ US 08854 "#
+            }
             0x88C8 => r#"1-7-1 Konan Minato-ku Tokyo JP 108-0075 "#,
             0x88C9 => r#"7F. Chungjin Bldg., 475-22, Seoul  KR 137-819 "#,
             0x88CA => r#"8400 Decarie Blvd Montreal Québec CA H4P2N2 "#,
@@ -1922,7 +1931,7 @@ Contains packet-processing meta-data followed by encapsulated packet. See https:
             0x88E5 | 0x8910 => {
                 r#"IEEE 802.1 Chair, c/o RAC Administrator IEEE Piscataway NJ US 08854  "#
             }
-            0x88E6..=0x88E7 => r#"M/S P7903B12 Santa Clara CA US 95054 "#,
+            0x88E6 => r#"M/S P7903B12 Santa Clara CA US 95054 "#,
             0x88E8 => r#"100 Perimeter Park Drive, Suite H Morrisville NC US 27560 "#,
             0x88E9 => r#"120 Turnpike Road Southborough MA US 02062 "#,
             0x88EC => r#"150 W.Iowa Ave #208 Sunnyvale CA US 94086 "#,
